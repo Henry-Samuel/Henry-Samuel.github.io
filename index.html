@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Henry Samuel | Developer</title>
+    <meta name="description" content="Henry Samuel - Full-stack developer specializing in blockchain, AI agents, and modern web applications. Creator of Sigil Protocol.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #06b6d4;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border: #334155;
+            --accent: #10b981;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .hero {
+            padding: 8rem 0 6rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #1e1b4b 100%);
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            margin: 0 auto 2rem;
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .hero .bio {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .github-btn {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .linkedin-btn {
+            background: #0077b5;
+            color: white;
+        }
+
+        .project-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(37, 99, 235, 0.2);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .project-links a:hover {
+            color: var(--primary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .contact-section {
+            text-align: center;
+            background: linear-gradient(135deg, #1e1b4b 0%, var(--bg-dark) 100%);
+        }
+
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">HS</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="avatar">👨‍💻</div>
+            <h1>Henry Samuel</h1>
+            <p class="subtitle">Full-Stack Developer | Blockchain & AI Enthusiast</p>
+            <p class="bio">
+                Building decentralized protocols and intelligent systems. 
+                Focused on on-chain attestation, AI agents, and developer tooling.
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/Henry-Samuel" target="_blank" class="social-btn github-btn">
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/samuel-henry-372b71b5/" target="_blank" class="social-btn linkedin-btn">
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/Henry-Samuel/heysigil" target="_blank" class="social-btn project-btn">
+                    <span>Sigil Protocol</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Developer. Builder. Decentralization advocate.</p>
+            <div class="skill-category">
+                <p style="color: var(--text-secondary); max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1rem;">
+                    I'm Henry Samuel, a developer focused on building developer-first protocols and tools. 
+                    Currently working on <strong style="color: var(--primary);">Sigil</strong>, 
+                    an on-chain attestation protocol on Base that lets developers earn via EAS-sealed verification, 
+                    USDC fee splits, and milestone-gated token unlocks.
+                    I care about clean architecture, security, and making complex systems feel simple.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Highlighted repositories and products</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Sigil Protocol</h3>
+                    </div>
+                    <p class="project-desc">
+                        On-chain attestation protocol on Base. Verifies project ownership via GitHub, domain, zkTLS, social accounts; 
+                        issues EAS attestations and gates USDC fee distributions and milestone token unlocks.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Bun</span>
+                        <span class="tech-tag">Hono</span>
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Ethereum</span>
+                        <span class="tech-tag">EAS</span>
+                        <span class="tech-tag">Privy</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Henry-Samuel/heysigil" target="_blank">GitHub</a>
+                        <a href="https://github.com/Henry-Samuel/heysigil/blob/master/PLAN.md" target="_blank">Plan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Tech Stack</h2>
+            <p class="section-subtitle">Technologies and tools I work with</p>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages & Runtime</h3>
+                    <div class="skill-items">
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Bun</span>
+                        <span class="tech-tag">Solidity</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend & API</h3>
+                    <div class="skill-items">
+                        <span class="tech-tag">Hono</span>
+                        <span class="tech-tag">Express</span>
+                        <span class="tech-tag">Drizzle ORM</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Blockchain</h3>
+                    <div class="skill-items">
+                        <span class="tech-tag">Base</span>
+                        <span class="tech-tag">Ethereum</span>
+                        <span class="tech-tag">EAS</span>
+                        <span class="tech-tag">Foundry</span>
+                        <span class="tech-tag">Ethers v6</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Auth & Security</h3>
+                    <div class="skill-items">
+                        <span class="tech-tag">Privy</span>
+                        <span class="tech-tag">OAuth</span>
+                        <span class="tech-tag">zkTLS</span>
+                        <span class="tech-tag">Pino</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="skill-items">
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Tailwind</span>
+                        <span class="tech-tag">shadcn/ui</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>DevOps & Tools</h3>
+                    <div class="skill-items">
+                        <span class="tech-tag">Git</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">CI/CD</span>
+                        <span class="tech-tag">Redis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Connect</h2>
+            <p class="section-subtitle">Feel free to reach out</p>
+            <div class="contact-cards">
+                <a href="https://github.com/Henry-Samuel" target="_blank" class="contact-card">
+                    <h3>GitHub</h3>
+                    <p style="color: var(--text-secondary);">Henry-Samuel</p>
+                </a>
+                <a href="https://www.linkedin.com/in/samuel-henry-372b71b5/" target="_blank" class="contact-card">
+                    <h3>LinkedIn</h3>
+                    <p style="color: var(--text-secondary);">Samuel Henry</p>
+                </a>
+                <a href="https://github.com/Henry-Samuel/heysigil" target="_blank" class="contact-card">
+                    <h3>Sigil</h3>
+                    <p style="color: var(--text-secondary);">Featured project</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Henry Samuel. Built with care.</p>
+        </div>
+    </footer>
+</body>
+</html>
