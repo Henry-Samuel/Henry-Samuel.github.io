@@ -2,6 +2,8 @@
 
 Portfolio site for Henry Samuel.
 
+Source and issues: https://github.com/Henry-Samuel/Henry-Samuel.github.io
+
 ## About
 
 A minimal static portfolio showcasing selected projects, technical skills, and contact information. Built with plain HTML/CSS and hosted via GitHub Pages.
