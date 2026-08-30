@@ -3,6 +3,12 @@ node_modules/
 dist/
 build/
 out/
+.cache/
+.cache-loader/
+.parcel-cache/
+.vite/
+.next/
+.turbo/
 
 # Environment and secrets
 .env
@@ -20,3 +26,7 @@ Thumbs.db
 *.swp
 *.swo
 *~
+.idea/
+.vscode/
+.vercel/
+coverage/
