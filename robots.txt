@@ -1,0 +1,7 @@
+# robots.txt — Henry Samuel Portfolio
+# https://henry-samuel.github.io/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://henry-samuel.github.io/sitemap.xml

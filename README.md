@@ -2,6 +2,8 @@
 
 Portfolio site for Henry Samuel.
 
+🔗 **Live site:** https://henry-samuel.github.io/
+
 Source and issues: https://github.com/Henry-Samuel/Henry-Samuel.github.io
 
 ## About
@@ -23,6 +25,16 @@ Open `index.html` directly in a browser, or serve the folder with any static ser
 python3 -m http.server 8080
 # then open http://localhost:8080
 ```
+
+## Static-site housekeeping
+
+This repo ships the standard GitHub Pages auxiliaries:
+
+- `404.html` — custom 404 page
+- `robots.txt` — crawl rules + sitemap pointer
+- `sitemap.xml` — search-engine index for the live site
+
+These files are consumed by GitHub Pages / search engines, not by the local preview.
 
 ## Deployment
 
